@@ -24,14 +24,6 @@ CREATE TABLE IF NOT EXISTS municipio (
         FOREIGN KEY (idDepartamento) REFERENCES departamento(idDepartamento)
 );
 
-CREATE TABLE IF NOT EXISTS datosTemporales (
-    nombreRegion varchar(250),
-    codigoDepartamento varchar(250),
-    nombreDepartamento varchar(250),
-    codigoMunicipio varchar(250),
-    nombreMunicipio varchar(250)
-);
-
 -- 1. Cargar Regiones
 LOAD DATA LOCAL INFILE '/var/lib/mysql-files/Departamentos_y_municipios_de_Colombia_20241031.csv'
 IGNORE
