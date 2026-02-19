@@ -1,28 +1,52 @@
-# Proyecto: Contenedor MySQL + Automatización de Base de Datos
+# Proyecto: Contenedor MariaDB + Automatización de Base de Datos
 
-## 📌 Objetivo del proyecto
+## 📌 Objetivo del Proyecto
 
-El objetivo de este proyecto es ejecutar un contenedor Docker que levante un **Sistema Gestor de Base de Datos**, en este caso **MySQL**.
+El propósito de este proyecto es desplegar un contenedor Docker que ejecute un Sistema Gestor de Base de Datos (SGBD), específicamente MariaDB.
 
-Dentro del proceso se realiza:
+El flujo automatizado permite:
 
-- Creación de la base de datos.
-- Volcado de información inicial.
-- Filtrado de datos.
-- Distribución de la información a sus respectivas tablas.
-- Eliminación de datos redundantes.
+- Crear la base de datos.
+- Ejecutar scripts SQL iniciales.
+- Distribuir la información en sus respectivas tablas.
+- Eliminar datos redundantes.
+- Garantizar que todo el proceso se ejecute de forma controlada y repetible.
 
-Todo el flujo está diseñado para ejecutarse automáticamente mediante archivos **`.bat`**.
+Toda la ejecución se encuentra orquestada mediante archivos `.bat`, permitiendo automatizar el ciclo completo desde Windows.
 
 ---
 
-## ⚙️ Ejecución del proyecto
+## Arquitectura General
 
-Este proyecto se ejecuta desde el archivo principal:
+El proyecto trabaja bajo el siguiente esquema:
 
-### ✅ `run.bat`
+1. Inicialización de Docker.
+2. Construcción y levantamiento del contenedor MariaDB.
+3. Ejecución automática del script `database.sql`.
+4. Procesamiento y normalización de datos.
+5. Finalización con entorno listo para consultas.
 
-En la terminal de Windows (CMD o PowerShell) se debe ejecutar el siguiente comando desde la **raíz del proyecto**:
+---
+
+## ⚙️ Requisitos Previos
+
+Antes de ejecutar el proyecto, asegúrese de tener instalado:
+
+- Docker Desktop
+- Visual Studio Code (opcional, pero recomendado)
+- Sistema operativo Windows
+
+Verifique que Docker se encuentre en ejecución antes de iniciar el proceso. (Aunque el `.bat` se encarga de abrir docker de manera inicial)
+
+---
+
+## Ejecución del Proyecto
+
+El proyecto se ejecuta desde el archivo principal:
+
+### `01_encadenador.bat`
+
+Desde la raíz del proyecto, abra una terminal (CMD o PowerShell) y ejecute:
 
 ```bash
-.\run.bat
+.\01_encadenador.bat
